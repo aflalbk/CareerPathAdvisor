@@ -1,4 +1,5 @@
 import random
+
 # list of 100 Occupations.
 occupations_list = ['Teacher', 'Doctor', 'Engineer', 'Chef', 'Police Officer', 'Nurse', 'Artist', 'Lawyer',
                     'Accountant', 'Firefighter', 'Writer', 'Electrician', 'Dentist', 'Architect', 'Musician',
@@ -19,5 +20,14 @@ occupations_list = ['Teacher', 'Doctor', 'Engineer', 'Chef', 'Police Officer', '
                     'Chiropractor', 'Police Detective', 'Human Resources Manager', 'Museum Curator',
                     'Occupational Therapist', 'Speech Pathologist']
 
-# print a random Occupation from the list
-print(random.choice(occupations_list))
+# replay based on answer.
+answer = input("Do you want a suggestion to help you select your dream job? (answer yes or no)")
+answer = answer.lower()
+if answer == "yes":
+    # print a random Occupation from the list
+    print(random.choice(occupations_list))
+elif answer == "no":
+    print("That's perfectly fine! If you ever change your mind or have any questions in the future, feel free to "
+          "reach out. I'm here to help.")
+else:
+    print("Please enter yes or no")
