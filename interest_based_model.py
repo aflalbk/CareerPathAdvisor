@@ -1,248 +1,10 @@
-occupation_text = """Teacher
-Professor
-Librarian
-Doctor
-Nurse
-Dentist
-Pharmacist
-Pediatrician
-Veterinarian
-Paramedic
-Dental Hygienist
-Engineer
-Electrician
-Software Developer
-Carpenter
-Surveyor
-Welder
-Biomedical Engineer
-Computer Programmer
-Chef
-Waiter/Waitress
-Barista
-Baker
-Flight Attendant
-Wedding Planner
-Lawyer
-Police Officer
-Police Detective
-Social Worker
-Artist
-Musician
-Actor
-Photographer
-Graphic Designer
-Makeup Artist
-Fashion Designer
-News Anchor
-Museum Curator
-Writer
-Journalist
-Accountant
-Financial Analyst
-Actuary
-Firefighter
-Scientist
-Geologist
-Astronomer
-Archaeologist
-Biologist
-Forensic Scientist
-Marine Biologist
-Environmental Scientist
-Musician
-Actor
-Psychologist
-Carpenter
-Plumber
-Salesperson
-Real Estate Agent
-Social Media Manager
-Farmer
-Pilot
-Flight Instructor
-Historian
-Landscaper
-Surveyor
-Translator
-Welder
-Chemist
-Mathematician
-Optometrist
-Radiologist
-Radiologic Technologist
-Speech Therapist
-Occupational Therapist
-Physical Therapist
-Chiropractor
-Acupuncturist
-Zoologist
-Economist
-Park Ranger
-Museum Curator
-Hairdresser
-Forensic Scientist
-Marine Biologist
-Wedding Planner
-News Anchor
-Environmental Scientist
-Personal Trainer
-Human Resources Manager
-Museum Curator
-Speech Pathologist
-"""
-category_text = """Education and Teaching
-Education and Teaching
-Education and Teaching
-Medical and Healthcare
-Medical and Healthcare
-Medical and Healthcare
-Medical and Healthcare
-Medical and Healthcare
-Medical and Healthcare
-Medical and Healthcare
-Medical and Healthcare
-Engineering and Technology
-Engineering and Technology
-Engineering and Technology
-Engineering and Technology
-Engineering and Technology
-Engineering and Technology
-Engineering and Technology
-Engineering and Technology
-Culinary and Hospitality
-Culinary and Hospitality
-Culinary and Hospitality
-Culinary and Hospitality
-Culinary and Hospitality
-Culinary and Hospitality
-Legal and Law Enforcement
-Legal and Law Enforcement
-Legal and Law Enforcement
-Legal and Law Enforcement
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Creative Arts and Media
-Writing and Journalism
-Writing and Journalism
-Financial and Accounting
-Financial and Accounting
-Financial and Accounting
-Emergency Services
-Science and Research
-Science and Research
-Science and Research
-Science and Research
-Science and Research
-Science and Research
-Science and Research
-Science and Research
-Entertainment and Performing Arts
-Entertainment and Performing Arts
-Psychology and Counseling
-Construction and Building
-Construction and Building
-Business and Sales
-Business and Sales
-Business and Sales
-Agriculture and Farming
-Aviation and Piloting
-Aviation and Piloting
-History and Research
-Landscaping and Surveying
-Landscaping and Surveying
-Language and Communication
-Metalworking and Construction
-Chemistry and Research
-Mathematics and Statistics
-Optometry and Vision Care
-Medical Imaging and Radiology
-Medical Imaging and Radiology
-Therapists and Healthcare
-Therapists and Healthcare
-Therapists and Healthcare
-Therapists and Healthcare
-Therapists and Healthcare
-Zoology and Animal Science
-Economics and Analysis:
-Park and Wildlife Management
-Museum and Curation
-Other
-Other
-Other
-Other
-Other
-Other
-Other
-Other
-Other
-Other"""
-
-distinct_category_text = """Education and Teaching
-Medical and Healthcare
-Engineering and Technology
-Culinary and Hospitality
-Legal and Law Enforcement
-Creative Arts and Media
-Writing and Journalism
-Financial and Accounting
-Emergency Services
-Science and Research
-Entertainment and Performing Arts
-Psychology and Counseling
-Construction and Building
-Business and Sales
-Agriculture and Farming
-Aviation and Piloting
-History and Research
-Landscaping and Surveying
-Language and Communication
-Metalworking and Construction
-Chemistry and Research
-Mathematics and Statistics
-Optometry and Vision Care
-Medical Imaging and Radiology
-Therapists and Healthcare
-Zoology and Animal Science
-Economics and Analysis:
-Park and Wildlife Management
-Museum and Curation
-Other"""
-
-'''
-occupation_list = occupation_text.splitlines()
-category_list = category_text.splitlines()
-distinct_category_list = distinct_category_text.splitlines()
-print(occupation_list, '\n', category_list)
-print(len(occupation_list), len(category_list))
-print(distinct_category_list)
-
-occupation_category_list = []
-for x in range(len(occupation_list)):
-    occupation_category_list.append([occupation_list[x], category_list[x]])
-
-distinct_category_list_with_number = []
-for x in range(len(distinct_category_list)):
-    distinct_category_list_with_number.append(f"{x+1}. " + distinct_category_list[x])
-
-print(distinct_category_list_with_number)
-
-print(occupation_category_list)
-print(len(occupation_category_list))
-
-ans = ["golden 234", "gryt rutyh", "ehrtg erjt"]
-adt = ans[1]
-print(adt[3:])
-
-'''
 import random
+import time
+import sys
 
+
+#
+# list of occupation and its category
 occupation_category_list = [['Teacher', 'Education and Teaching'], ['Professor', 'Education and Teaching'],
                             ['Librarian', 'Education and Teaching'], ['Doctor', 'Medical and Healthcare'],
                             ['Nurse', 'Medical and Healthcare'], ['Dentist', 'Medical and Healthcare'],
@@ -314,34 +76,96 @@ distinct_category_list = ['1. Education and Teaching', '2. Medical and Healthcar
                           '26. Zoology and Animal Science', '27. Economics and Analysis:',
                           '28. Park and Wildlife Management', '29. Museum and Curation', '30. Other']
 
-print("okay, Choose you interested category from the list, and enter the numer of it \n")
-# printing one by one category in the category-list.
-for category in distinct_category_list:
-    print(category)
-# taking the number of category from user
-num_cato = int(input())
-print(num_cato)
-# finding the matching category in the list
-num_selected_cato = distinct_category_list[num_cato - 1]
-print(num_selected_cato)
-# removing number part from the num_selected_cato
-if num_cato < 10:
-    selected_cato = num_selected_cato[3:]
-else:
-    selected_cato = num_selected_cato[4:]
-print(selected_cato)
-find = False
-selected_occupation = []
-for occupation_category in occupation_category_list:
-    if occupation_category[1] == selected_cato:
-        selected_occupation.append(occupation_category[0])
-        find = True
-    else:
-        if not find:
-            continue
-        else:
-            break
+occupation_responses = [
+    "That's wonderful! Education and teaching play a crucial role in shaping future generations.",
+    "Impressive choice! Medical and healthcare professionals make a significant impact on people's lives.",
+    "Great pick! Engineering and technology drive innovation and progress in our world.",
+    "Excellent! Culinary and hospitality bring joy through food and service.",
+    "Very commendable! Legal and law enforcement uphold justice and safety.",
+    "Fantastic! Creative arts and media inspire and entertain us.",
+    "Terrific! Writing and journalism are powerful means of communication.",
+    "Impressive! Financial and accounting expertise fuels businesses and economies.",
+    "Bravo! Emergency services are vital in times of crisis.",
+    "Outstanding! Science and research expand our understanding of the world.",
+    "Amazing choice! Entertainment and performing arts bring joy and creativity.",
+    "Well done! Psychology and counseling offer valuable support and insights.",
+    "Impressive! Construction and building shape our physical environment.",
+    "Excellent! Business and sales drive economic growth and innovation.",
+    "Great selection! Agriculture and farming ensure our food supply.",
+    "Impressive! Aviation and piloting explore the skies and connect the world.",
+    "Fascinating! History and research uncover the past's treasures.",
+    "Well done! Landscaping and surveying enhance outdoor spaces.",
+    "Superb choice! Language and communication bridge understanding.",
+    "Excellent! Metalworking and construction craft with precision.",
+    "Impressive! Chemistry and research delve into the world of molecules.",
+    "Outstanding! Mathematics and statistics are the universal language.",
+    "Great pick! Optometry and vision care preserve eye health.",
+    "Well done! Medical imaging and radiology offer vital insights.",
+    "Bravo! Therapists and healthcare professionals aid in healing and well-being.",
+    "Impressive! Zoology and animal science explore the wonders of nature.",
+    "Great choice! Economics and analysis unravel market dynamics.",
+    "Outstanding! Park and wildlife management protect our natural heritage.",
+    "Excellent! Museum and curation preserve our cultural treasures.",
+    "That's intriguing! 'Other' opens up a world of possibilities for exploration."
+]
 
-print(selected_occupation)
-# print a random Occupation from the list
-print(random.choice(selected_occupation))
+
+def slow_type(text, delay=0.00):
+    for letter in text:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(delay)
+
+
+# replay based on answer.
+answer = input("Do you want a suggestion to help you select your dream job? (answer yes or no)")
+answer = answer.lower()
+if answer == "yes":
+    slow_type("Okay, choose your interested category from the list and enter its number \n", 0.03)
+
+    # printing one by one category in the category-list (typing style).
+    for category in distinct_category_list:
+        slow_type(category,0.01)
+        time.sleep(0.01)
+        print()
+
+    # taking the number of category from user
+    num_cato = int(input())
+
+    # handling input above 30.
+    while num_cato > 30:
+        num_cato = int(input("Please select a number from the list."))
+
+    # finding the matching category in the list
+    num_selected_cato = distinct_category_list[num_cato - 1]
+    # removing number part from the num_selected_cato
+    if num_cato < 10:
+        selected_cato = num_selected_cato[3:]
+    else:
+        selected_cato = num_selected_cato[4:]
+    # simple personalized appreciation for choosing the category (typing style).
+    slow_type(occupation_responses[num_cato - 1], 0.03)
+    print()
+    # set a boolean to avoid unnecessary looping
+    find = False
+    # set an empty list for stor occupation of selected category
+    selected_occupation = []
+    for occupation_category in occupation_category_list:
+        # appending matching values to the selected_occupation.
+        if occupation_category[1] == selected_cato:
+            selected_occupation.append(occupation_category[0])
+            find = True
+        else:
+            if not find:
+                continue
+            else:
+                break
+
+    # print a random Occupation from the list
+    slow_type(f"If you have a passion for the {selected_cato} category, I have a wonderful recommendation for you."
+              f" Consider pursuing a career as a {random.choice(selected_occupation)}.", 0.03)
+elif answer == "no":
+    slow_type("That's perfectly fine! If you ever change your mind or have any questions in the future, feel free to "
+              "reach out. I'm here to help.", 0.03)
+else:
+    print("Please enter yes or no")
